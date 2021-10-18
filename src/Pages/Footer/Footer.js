@@ -21,10 +21,6 @@ const Footer = () => {
                     </div>
                     <div className="list-style">
                         <h3>Legal</h3>
-                        <ul>
-                            <li>Terms</li>
-                            <li>Privacy</li>
-                        </ul>
                     </div>
                 </div>
             </div>

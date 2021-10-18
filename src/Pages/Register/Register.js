@@ -3,12 +3,12 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     return (
         <div className="backgrnd-img">
             <div className="container login-form ">
                 <div className="py-5">
-                    <h2>Login Please</h2>
+                    <h2>Create a new account</h2>
                     <Form className="text-left w-50 mx-auto">
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
@@ -22,6 +22,10 @@ const Login = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" required />
                         </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Re-enter Password" required />
+                        </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Remember Me Login" />
                         </Form.Group>
@@ -29,13 +33,13 @@ const Login = () => {
                             Submit
                         </Button>
                     </Form>
-                    <p>New to this website? <Link to="/register">Create Account</Link></p>
-                    <div>...................or.................</div>
-                    <button className="btn btn-success">Google Login</button>
+                    <p>
+                        Already have an account? <Link to="/login">Log-In</Link>
+                    </p>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Register;

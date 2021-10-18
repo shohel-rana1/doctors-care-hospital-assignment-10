@@ -9,6 +9,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Header from './Pages/Header/Header';
 import Contact from './Pages/Contact/Contact';
 import Footer from './Pages/Footer/Footer';
+import Register from './Pages/Register/Register';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
