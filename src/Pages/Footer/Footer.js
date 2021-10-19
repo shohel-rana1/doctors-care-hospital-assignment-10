@@ -4,12 +4,12 @@ const Footer = () => {
     return (
         <>
             <div className="bgColor px-5 py-4">
-                <div className="d-flex pt-5 px-5 justify-content-between container">
-                    <div className="text-left">
-                        <h3>DONATE TO SUPPORT OPEN-SOURCE COURSES</h3>
-                        <p>Supporting open-source projects and the folks <br /> who run them is what Brainstorm learnweb is all about. <br /> Besides ticking off pull requests and flexing our coding muscles.</p>
+                <div className="row g-5 mx-auto container">
+                    <div className="text-left col-md-4">
+                        <h3>Doctors Care Hospital</h3>
+                        <p>Doctors Care  Hospital is the Best Hospital in Bangladesh. <br /> We are a 250 bedded multi-disciplinary tertiary-care Hospital, <br /> situated at Banai, Dhaka.which is one <br /> of the top Conglomerates in Bangladesh</p>
                     </div>
-                    <div className="block icon-list">
+                    <div className="block icon-list text-left col-md-4">
                         <h3>Contact Us</h3>
                         <ul>
                             <li><i className="fab fa-facebook-square icon"></i>&nbsp;Facebook</li>
@@ -19,8 +19,12 @@ const Footer = () => {
                         </ul>
 
                     </div>
-                    <div className="list-style">
+                    <div className="list-style text-left col-md-4 ">
                         <h3>Legal</h3>
+                        <h6>Privacy Policy</h6>
+                        <h6>Terms And Conditions</h6>
+                        <h6>Authorization and authentication</h6>
+
                     </div>
                 </div>
             </div>

@@ -1,68 +1,68 @@
 [
     {
-        "S_id": 1,
+        "key": 11,
         "img": "https://i.ibb.co/mTPV6s6/Ambulance-Service.jpg",
         "name": "Ambulance Service",
         "description": "We provide 24 hours ambulance service"
     },
     {
-        "S_id": 2,
+        "key": 12,
         "img": "https://i.ibb.co/ZJj7RpV/Close-up-of-hand-entering-PIN-pass-code-for-a-money-transfer-on-a-ATM-bank-machine-keypad-outside.jpg",
         "name": "ATM Booth",
-        "description": "We provide 24 hours ambulance service"
+        "description": "You can cash out 24 hours"
     },
     {
-        "S_id": 3,
+        "key": 13,
         "img": "https://i.ibb.co/R7TsvKp/Blood-Banks.jpg",
         "name": "Blood Bank",
-        "description": "We provide 24 hours ambulance service"
+        "description": "We provide a huge blood bank"
     },
     {
-        "S_id": 4,
+        "key": 14,
         "img": "https://i.ibb.co/8rpQH9t/cafeteria.jpg",
         "name": "Cafeteria",
-        "description": "We provide 24 hours ambulance service"
+        "description": "You can have your meals"
     },
     {
-        "S_id": 5,
+        "key": 15,
         "img": "https://i.ibb.co/4pkwQWJ/car-parking.jpg",
         "name": "Car Parking",
-        "description": "We provide 24 hours ambulance service"
+        "description": "we have a huge paring area"
     },
     {
-        "S_id": 6,
+        "key": 16,
         "img": "https://i.ibb.co/74Zc90V/day-care.jpg",
         "name": "Day Care",
-        "description": "We provide 24 hours ambulance service"
+        "description": "We provide day care service for far away people"
     },
     {
-        "S_id": 7,
+        "key": 17,
         "img": "https://i.ibb.co/cY038Qr/medical-record.jpg",
         "name": "Medical Records",
-        "description": "We provide 24 hours ambulance service"
+        "description": "You can get any previous records"
     },
     {
-        "S_id": 8,
+        "key": 18,
         "img": "https://i.ibb.co/0r4bS2q/pharmacy.jpg",
         "name": "Pharmacy",
-        "description": "We provide 24 hours ambulance service"
+        "description": "You can any kinda medicine here"
     },
     {
-        "S_id": 9,
+        "key": 19,
         "img": "https://i.ibb.co/h7Yxw7C/prayer-room.jpg",
         "name": "Prayer Room",
-        "description": "We provide 24 hours ambulance service"
+        "description": "A big area ,for prayers"
     },
     {
-        "S_id": 10,
+        "key": 40,
         "img": "https://i.ibb.co/yYJHjcP/vaccination.jpg",
         "name": "Vaccination Center",
-        "description": "We provide 24 hours ambulance service"
+        "description": "You can get all kida vaccine that you need"
     },
     {
-        "S_id": 11,
+        "key": 41,
         "img": "https://i.ibb.co/26Nf11C/wifi.png",
         "name": "Wifi Facility",
-        "description": "We provide 24 hours ambulance service"
+        "description": "We provide 24 hours wifi"
     }
 ]

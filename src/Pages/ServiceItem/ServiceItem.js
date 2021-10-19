@@ -1,10 +1,10 @@
-import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './ServiceItem.css'
 
-const ServiceItem = (props) => {
-    const { img, name, description } = props.service;
+const ServiceItem = ({ service }) => {
+    const { img, name, description, key } = service;
     return (
         <div className="col-12 col-md-6 col-lg-4 mt-5">
             <Card style={{ width: '320px' }}>
@@ -16,8 +16,12 @@ const ServiceItem = (props) => {
                     <Card.Text className="name">{description}</Card.Text>
                 </Card.Body>
                 <Card.Body>
-                    <Button
-                        className="w-100 ba-color">View Details</Button>
+                    <Link
+                        to={`/servicedetails/${key}`}
+                        className="btn w-100 btn-bg"
+                    >
+                        View Details
+                    </Link>
                 </Card.Body>
             </Card>
         </div>

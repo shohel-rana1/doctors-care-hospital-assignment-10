@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import useConsultants from '../../hooks/useConsultants';
 import Consultant from '../Consultant/Consultant';
 
 const Consultants = () => {
-    const [consultors, Setconsultors] = useState([]);
-    useEffect(() => {
-        fetch('./doctors.json')
-            .then(res => res.json())
-            .then(data => Setconsultors(data))
-    }, [])
+    const [consultors] = useConsultants();
     return (
         <div className="backgrnd-img">
             <h1 className="pt-5">Please select your Consultant</h1>
-            <div className="container service-container mx-auto row g-4">
+            <div className="container service-container mx-auto row g-2">
                 {
                     consultors.map(consultor => <Consultant
-                        key={consultor.key}
+                        key={consultor.D_id}
                         consultor={consultor}
                     ></Consultant>)
                 }
