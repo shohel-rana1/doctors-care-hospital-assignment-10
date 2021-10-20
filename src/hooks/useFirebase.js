@@ -1,122 +1,150 @@
 import { useEffect, useState } from "react"
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GithubAuthProvider } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
 
 initializeAuthentication();
 
 const useFirebase = () => {
-    const [user, setUser] = useState({});
-
     const auth = getAuth();
-    const [name, setName] = useState({});
-    const [error, setError] = useState('');
+    const [user, setUser] = useState({});
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [error, seterror] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLogin, setIslogin] = useState(false);
+    const [repassword, setRepassword] = useState('');
+    const [isLoading, setIsLoding] = useState(true);
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
-    //login with google
+    //Sign In with google
     const signInWithGoogle = () => {
-        return signInWithPopup(auth, googleProvider)
-    }
+        return signInWithPopup(auth, googleProvider);
+    };
 
-    //user auth state observer
-    useEffect(() => {
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                setUser(user);
-            }
-        });
-    }, [auth])
+    //Sign in with github
+    const signInWithGithub = () => {
+        return signInWithPopup(auth, githubProvider);
+    };
+
+    //Email and Password login
+    const handleEmalAndPassLogin = () => {
+        return signInWithEmailAndPassword(auth, email, password);
+    };
 
     //logout 
     const logout = () => {
+        setIsLoding(true);
         signOut(auth)
             .then(() => {
                 setUser({});
             })
-    }
-
-    const handleRegistration = event => {
-        event.preventDefault();
-        console.log(email, password);
-
-        if (password.length < 6) {
-            setError('Password must be at least 6 characters')
-            return;
-        }
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('Password must contain two uppercase')
-            return;
-        }
-        isLogin ? processLogin(email, password) : createNewUser(email, password);
-    }
-
-    const processLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                setError('');
-            })
             .catch(error => {
-                setError(error.message);
+                console.log(error.message);
             })
-    }
+            .finally(() => setIsLoding(false));
+    };
+
+    //user auth state observer
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+            }
+            setIsLoding(false);
+        });
+    });
 
 
-    const toggleLogin = event => {
-        setIslogin(event.target.checked)
-    }
+    const getEmail = event => {
+        setEmail(event.target.value);
+    };
+
+    const getPassword = event => {
+        setPassword(event.target.value);
+    };
+
+    const getRePassword = event => {
+        setRepassword(event.target.value);
+    };
 
     const handleNameChanged = event => {
-        setName(event.target.value)
-    }
+        setName(event.target.value);
+    };
 
-    const handleEmail = event => {
-        setEmail(event.target.value)
-    }
+    const handlePhoneChanged = event => {
+        setPhone(event.target.value);
+    };
 
-    const handlePassword = event => {
-        setPassword(event.target.value)
-    }
 
-    const createNewUser = (email, password) => {
+    //Handle registrationn
+    const handleRegistration = event => {
+        event.preventDefault();
+
+        if (password.length < 6) {
+            seterror('Password must be at least 6 characters')
+            return;
+        };
+        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+            seterror('Password must contain two uppercase')
+            return;
+        };
+        if (password !== repassword) {
+            seterror("Password Doesn't Match");
+            return;
+        };
+
+        //create user
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
-                setError('');
+                seterror('');
                 console.log(user);
                 setUserName();
             })
             .catch(error => {
-                setError(error.message);
-            })
-    }
+                seterror(error.message);
+            });
+    };
 
-
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
+    //varify email
+    const varifyEmail = () => {
+        sendEmailVerification(auth.currentUser)
             .then(result => {
 
             })
-    }
+    };
 
+    //set username
+    const setUserName = () => {
+        updateProfile(auth.currentUser, { displayName: name, PhoneNumber: phone, })
+            .then(result => {
+
+            })
+            .catch(error => {
+                console.log('username', error.message);
+            })
+    };
 
     return {
         user,
+        name,
         error,
-        signInWithGoogle,
+        isLoading,
+        seterror,
         logout,
-        setUserName, handlePassword,
+        signInWithGithub,
+        signInWithGoogle,
+        setUserName,
+        getEmail,
+        getPassword,
+        getRePassword,
         handleRegistration,
-        handleEmail, toggleLogin,
         handleNameChanged,
-        createNewUser,
-        processLogin
-
-
+        handlePhoneChanged,
+        handleEmalAndPassLogin,
+        varifyEmail
 
     }
 }
