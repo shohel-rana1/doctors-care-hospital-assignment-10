@@ -4,7 +4,7 @@ import { useLocation, useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
-    const { handleRegistration, signInWithGoogle, signInWithGithub, getEmail, getPassword, getRePassword, handleNameChanged, handlePhoneChanged } = useAuth();
+    const { handleRegistration, signInWithGoogle, signInWithGithub, getEmail, getPassword, getRePassword, handleNameChanged, handlePhoneChanged, toggleLogin } = useAuth();
 
     const [error, setError] = useState('');
     const location = useLocation()
@@ -65,19 +65,20 @@ const Register = () => {
                             <label htmlFor="exampleInputPassword1" className="form-label">Re-enter Password</label>
                             <input onBlur={getRePassword} type="password" className="form-control" placeholder="Re-enter Password" id="exampleInputPassword1" />
                         </div>
-                        {/* <div className="mb-3 form-check">
+                        <div className="mb-3 form-check">
                             <input onChange={toggleLogin} type="checkbox" className="form-check-input" id="exampleCheck1" />
                             <label className="form-check-label" htmlFor="exampleCheck1">Already Login?</label>
-                        </div> */}
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        </div>
+                        <button type="submit" className="btn btn-secondary">Submit</button>
                     </form>
                     <p>
                         Already have an account? <Link to="/login">Log-In</Link>
                     </p>
-                    <div className="text-lg-start">
-                        <i onClick={handleGoogleLogin} className="fab fa-google text-light fs-4 google-icon"></i>
-                        <i onClick={handleGithubLogin} className="fab fa-github-square text-light fs-4 google-icon"></i>
+                    <div className="text-lg-start px-2">
+                        <button onClick={handleGoogleLogin} type="submit" className="btn btn-secondary">Google Sing In</button>
+                        <button onClick={handleGithubLogin} type="submit" className="btn btn-secondary">Github Sing In</button>
                     </div>
+
                 </div>
             </div>
         </div>

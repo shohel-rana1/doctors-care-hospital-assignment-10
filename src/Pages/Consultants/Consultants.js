@@ -1,21 +1,27 @@
 // import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
 import useConsultants from '../../hooks/useConsultants';
 import Consultant from '../Consultant/Consultant';
 
 const Consultants = () => {
     const [consultors] = useConsultants();
     return (
-        <div className="backgrnd-img">
-            <h1 className="pt-5">Please select your Consultant</h1>
-            <div className="container service-container mx-auto row g-2">
-                {
-                    consultors.map(consultor => <Consultant
-                        key={consultor.D_id}
-                        consultor={consultor}
-                    ></Consultant>)
-                }
+        <>
+            <div className="text-enter py-5">
+                <h1 style={{ color: '#069CAD' }} className="fs-1">Make an Appointment</h1>
+                <h3 style={{ color: '#2C77B1' }} className=" fs-3">Select a doctor</h3>
             </div>
-        </div>
+            <div className="backgrnd-img container-fluid px-4 p-md-5">
+                <Row xs={1} md={3} lg={3} xl={4} className="g-4">
+                    {
+                        consultors.map(consultor => <Consultant
+                            key={consultor.D_id}
+                            consultor={consultor}
+                        ></Consultant>)
+                    }
+                </Row>
+            </div>
+        </>
     );
 };
 

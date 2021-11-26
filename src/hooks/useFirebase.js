@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GithubAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GithubAuthProvider } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
 
 initializeAuthentication();
@@ -108,14 +108,6 @@ const useFirebase = () => {
             });
     };
 
-    //varify email
-    const varifyEmail = () => {
-        sendEmailVerification(auth.currentUser)
-            .then(result => {
-
-            })
-    };
-
     //set username
     const setUserName = () => {
         updateProfile(auth.currentUser, { displayName: name, PhoneNumber: phone, })
@@ -143,8 +135,7 @@ const useFirebase = () => {
         handleRegistration,
         handleNameChanged,
         handlePhoneChanged,
-        handleEmalAndPassLogin,
-        varifyEmail
+        handleEmalAndPassLogin
 
     }
 }

@@ -73,10 +73,10 @@ const Login = () => {
                         <button type="submit" className="btn btn-secondary">Login</button>
                     </form>
                     <p>New to this website? <Link to="/register">Create Account</Link></p>
-                    <div><h6>SignIn With Apps</h6></div>
-                    <div className="text-lg-start">
-                        <i onClick={handleGoogleLogin} className="fab fa-google text-light fs-4 google-icon"></i>
-                        <i onClick={handleGithubLogin} className="fab fa-github-square text-light fs-4 google-icon"></i>
+                    <div className="text-left"><h6>SignIn With Apps</h6></div>
+                    <div className="text-lg-start px-2">
+                        <button onClick={handleGoogleLogin} type="submit" className="btn btn-secondary">Google Sing In</button>
+                        <button onClick={handleGithubLogin} type="submit" className="btn btn-secondary">Github Sing In</button>
                     </div>
                 </div>
             </div>

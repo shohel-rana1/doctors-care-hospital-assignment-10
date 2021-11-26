@@ -44,10 +44,10 @@ const Header = () => {
                                 <i className="fab fa-elementor"></i>
                                 <NavLink className="nav-link" to="/departments">Departments</NavLink>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <i className="fas fa-user-md"></i>
                                 <NavLink className="nav-link" to="/consultants">Consultants</NavLink>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <i className="fas fa-address-card"></i>
                                 <NavLink className="nav-link" to="/contact">Contact</NavLink>
@@ -57,7 +57,7 @@ const Header = () => {
                                 <i className="fas fa-sign-in-alt"></i>
                                 {
                                     user.email ?
-                                        <button className="btn btn-secondary logout-btn" onClick={logout}>Log Out</button>
+                                        <button className="btn btn-secondary" onClick={logout}>Log Out</button>
                                         :
                                         <NavLink className="nav-link" to="/login">Login</NavLink>
                                 }
